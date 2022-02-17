@@ -26,7 +26,9 @@ public final class PostOrderCreate extends UserRestRequest<Response> {
   private Double price;
   private String time_in_force;
   private Double take_profit;
+  private String tp_trigger_by;
   private Double stop_loss;
+  private String sl_trigger_by;
   private Boolean reduce_only;
   private Boolean close_on_trigger;
   private String order_link_id;
@@ -70,8 +72,18 @@ public final class PostOrderCreate extends UserRestRequest<Response> {
     return this;
   }
 
+  public PostOrderCreate setTpTriggerBy(String tpTriggerBy) {
+    this.tp_trigger_by = tpTriggerBy;
+    return this;
+  }
+
   public PostOrderCreate setStopLoss(Double stop_loss) {
     this.stop_loss = stop_loss;
+    return this;
+  }
+
+  public PostOrderCreate setSlTriggerBy(String slTriggerBy) {
+    this.sl_trigger_by = slTriggerBy;
     return this;
   }
 
@@ -127,8 +139,16 @@ public final class PostOrderCreate extends UserRestRequest<Response> {
       builder.add("take_profit", take_profit);
     }
 
+    if (tp_trigger_by != null) {
+      builder.add("tp_trigger_by", tp_trigger_by);
+    }
+
     if (stop_loss != null) {
       builder.add("stop_loss", stop_loss);
+    }
+
+    if (sl_trigger_by != null) {
+      builder.add("sl_trigger_by", sl_trigger_by);
     }
 
     if (reduce_only != null) {
